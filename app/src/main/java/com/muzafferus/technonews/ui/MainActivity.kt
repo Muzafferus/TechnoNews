@@ -1,4 +1,4 @@
-package com.muzafferus.technonews
+package com.muzafferus.technonews.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
