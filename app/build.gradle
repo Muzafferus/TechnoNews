@@ -45,10 +45,12 @@ dependencies {
     //Core
     implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.test:core-ktx:1.5.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     kapt "org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.5.0"
 
     //UI
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //Navigation
@@ -95,6 +97,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
     testImplementation "com.google.truth:truth:1.1"
+
     androidTestImplementation "com.google.truth:truth:1.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
