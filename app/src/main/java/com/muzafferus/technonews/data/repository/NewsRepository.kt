@@ -17,5 +17,9 @@ class NewsRepository @Inject constructor(
         localDataSource.insert(article)
     }
 
+    fun deleteAll(){
+        localDataSource.deleteAll()
+    }
+
     fun getArticle(id:String) = localDataSource.getArticle(id.toInt())
 }

@@ -45,4 +45,8 @@ class HomeViewModel @Inject constructor(
             _newsList.postValue(ViewState.Error(e.message))
         }
     }
+
+    fun deleteAll() {
+        newsRepository.deleteAll()
+    }
 }
