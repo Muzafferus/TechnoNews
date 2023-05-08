@@ -17,7 +17,7 @@ class NewsRepository @Inject constructor(
         localDataSource.insert(article)
     }
 
-    fun deleteAll(){
+    suspend fun deleteAll(){
         localDataSource.deleteAll()
     }
 

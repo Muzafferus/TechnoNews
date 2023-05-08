@@ -16,5 +16,5 @@ interface ArticleDao {
     suspend fun insert(article: Article)
 
     @Query("DELETE FROM articles")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

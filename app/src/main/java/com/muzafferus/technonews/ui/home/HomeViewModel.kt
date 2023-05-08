@@ -46,7 +46,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun deleteAll() {
+    fun deleteAll() = viewModelScope.launch {
         newsRepository.deleteAll()
     }
 }
