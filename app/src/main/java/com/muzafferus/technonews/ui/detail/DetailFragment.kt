@@ -1,7 +1,10 @@
 package com.muzafferus.technonews.ui.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import coil.load
 import com.muzafferus.technonews.R
@@ -26,11 +29,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         if (articleId != null) {
             viewModel.getArticle(articleId ?: "").observe(viewLifecycleOwner) { response ->
                 if (response == null) {
-                    binding.articleFetchProgress.visibility = View.GONE
-                    binding.articleNotFound.visibility = View.VISIBLE
-                    binding.articleNotFound.text = getString(R.string.no_article_found)
+                    binding.tvContent.text = getString(R.string.no_article_found)
                 } else {
-                    binding.articleNotFound.visibility = View.GONE
                     showData(response)
                 }
             }
@@ -38,9 +38,25 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     }
 
     private fun showData(data: Article) {
-        binding.tvName.text = data.title
-        binding.tvId.text = data.id.toString()
-        binding.tvSymbol.text = data.description
-        binding.imgArticle.load(data.urlToImage)
+        binding.tvTitle.text = data.title
+        binding.tvDate.text = data.publishedAt
+        binding.tvContent.text = data.content
+
+        goneOrVisible(data.author, binding.tvAuthor)
+        binding.tvAuthor.text = data.author
+
+        goneOrVisible(data.url, binding.tvLink)
+        binding.tvLink.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(data.url))
+            startActivity(browserIntent)
+        }
+
+        binding.tvImg.load(data.urlToImage)
+    }
+
+    private fun goneOrVisible(text: String?, textView: TextView) {
+        text?.let { textView.visibility = View.VISIBLE } ?: kotlin.run {
+            textView.visibility = View.GONE
+        }
     }
 }

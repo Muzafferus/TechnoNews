@@ -7,5 +7,11 @@ class NewsRemoteDataSource @Inject constructor(
     private val newsService: NewsService
 ) : BaseDataSource() {
 
-    suspend fun getArticleList() = getResult { newsService.getArticleList(Utility.API_KEY) }
+    suspend fun getArticleList() = getResult {
+        newsService.getArticleList(
+            Utility.API_KEY,
+            Utility.COUNTRY,
+            Utility.CATEGORY_TECHNOLOGY
+        )
+    }
 }

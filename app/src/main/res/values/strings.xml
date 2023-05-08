@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TechnoNews</string>
     <string name="no_article_found">No, news found!</string>
+    <string name="read_more">Read more</string>
 </resources>
