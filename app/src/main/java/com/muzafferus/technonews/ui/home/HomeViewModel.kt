@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muzafferus.technonews.data.entities.Article
 import com.muzafferus.technonews.data.repository.NewsRepository
+import com.muzafferus.technonews.util.Utility
 import com.muzafferus.technonews.util.ViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -24,12 +25,12 @@ class HomeViewModel @Inject constructor(
             ArrayList<Article>>>
         get() = _newsList
 
-    fun getArticleList() = viewModelScope.launch {
+    fun getArticleList(category:String) = viewModelScope.launch {
         _newsList.postValue(ViewState.Loading())
         try {
             newsRepository.getArticles().collect { dbList ->
                 if (dbList.isEmpty()) {
-                    val response = newsRepository.getNews()
+                    val response = newsRepository.getNews(category)
                     response.data?.articles?.map { article ->
                         newsRepository.setArticles(article)
                     }

@@ -3,4 +3,10 @@
     <string name="no_article_found">No, news found!</string>
     <string name="read_more">Read more</string>
     <string name="article_image">article image</string>
+    <string name="category_technology">technology</string>
+    <string name="category_science">science</string>
+    <string name="category_health">health</string>
+    <string name="category_entertainment">entertainment</string>
+    <string name="category_business">business</string>
+    <string name="category_sports">sports</string>
 </resources>

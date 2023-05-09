@@ -9,17 +9,17 @@ class NewsRepository @Inject constructor(
     private val localDataSource: ArticleDao,
     private val remoteDataSource: NewsRemoteDataSource
 ) {
-    suspend fun getNews() = remoteDataSource.getArticleList()
+    suspend fun getNews(category: String) = remoteDataSource.getArticleList(category)
 
     fun getArticles() = localDataSource.getArticles()
 
-    suspend fun setArticles(article:Article) {
+    suspend fun setArticles(article: Article) {
         localDataSource.insert(article)
     }
 
-    suspend fun deleteAll(){
+    suspend fun deleteAll() {
         localDataSource.deleteAll()
     }
 
-    fun getArticle(id:String) = localDataSource.getArticle(id.toInt())
+    fun getArticle(id: String) = localDataSource.getArticle(id.toInt())
 }

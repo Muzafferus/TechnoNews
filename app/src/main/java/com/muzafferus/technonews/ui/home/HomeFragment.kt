@@ -2,8 +2,10 @@ package com.muzafferus.technonews.ui.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.chip.Chip
 import com.muzafferus.technonews.R
 import com.muzafferus.technonews.data.entities.Article
 import com.muzafferus.technonews.databinding.FragmentHomeBinding
@@ -28,6 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         initAdapter()
         initData()
+        initChips()
     }
 
     private fun initData() {
@@ -67,9 +70,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             }
         }
 
-        if (list.isEmpty()) {
-            viewModel.getArticleList()
-        }
+//        if (list.isEmpty()) {
+//            viewModel.getArticleList(Utility.CATEGORY_TECHNOLOGY)
+//        }
     }
 
     private fun initAdapter() {
@@ -87,4 +90,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.rvArticle.layoutManager = LinearLayoutManager(context)
         binding.rvArticle.adapter = adapter
     }
+
+    private fun initChips() {
+        binding.chipGroupChoice.setOnCheckedStateChangeListener { group, checkedId ->
+            for (id in checkedId) {
+                val chip: Chip = group.findViewById(id!!)
+                Toast.makeText(requireContext(), chip.text, Toast.LENGTH_SHORT).show()
+
+                viewModel.deleteAll()
+                viewModel.getArticleList(chip.text.toString())
+            }
+        }
+
+        binding.chipGroupChoice.check(binding.chip1.id)
+    }
+
 }
