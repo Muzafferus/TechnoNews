@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="center"
+    tools:context=".ui.home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/tv_img"
+        android:layout_width="166dp"
+        android:layout_height="166dp"
+        android:contentDescription="@string/article_image"
+        android:src="@mipmap/ic_launcher"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+</LinearLayout>
