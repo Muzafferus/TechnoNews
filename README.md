@@ -4,7 +4,7 @@ Techno News android application.
 ### Detail
 TechnoNews is a smartphone app that should be able to show top headlines for a specific source (BBC news)
 
-Constraints: <br/>
+#### Constraints: <br/>
 • The app must be written in Kotlin or Java, preferably Kotlin.<br/>
 • The app must run on the latest released version of the target platform<br/>
 • The app must be built using Android Studio 3.0+, without requiring the reviewer to modify any existing code. <br/>
@@ -12,30 +12,29 @@ Constraints: <br/>
 • The app may use libraries for HTTP/REST or JSON, such as Retrofit2+, Moshi, Gson, etc...<br/>
 • The app must include unit tests<br/>
 
-Story 1: When the user launches the application, he should land in a screen where is possible to see top headlines for the specific news source 
-Acceptance criteria: 
-1. News provider name should be showed as a screen title
-2. Headlines are presented in a list format.
-3. Each cell should present the headline title
-4. Headlines must be sorted by date
-5. The user must be able to scroll through the list of headlines
-6. Each cell should present headline image, if available (download and cache it, don’t bundle it) 
+#### Features and Functionality
 
-Story 2: When the user taps on a headline, he should be taken to a new screen 
-Acceptance criteria: 
-1. Tapping on a headline presents a new screen.
-2. Image, title, description and content should be displayed, if available 
+##### Displaying Top Headlines <br/>
+• When the user launches the application, they are presented with a screen displaying the top headlines from a specific news source, BBC news. <br/>
+• The screen title shows the news provider's name. <br/>
+• Headlines are presented in a list format, sorted by date. <br/>
+• Each cell in the list displays the headline title. <br/>
+• The user can scroll through the list of headlines. <br/>
+• If available, the headline image is displayed in each cell. Images are downloaded and cached for efficient loading. <br/>
 
-Story 3: When user opens the application, it should ask for a fingerprint identification, if available
-Acceptance criteria: 
-1. If the device has a fingerprint scanner and it’s configured in the device, user should be required to use it when he opens the application
-2. If the device doesn’t have fingerprint scanner or it’s not configured, then it should open normally 
+##### Viewing Headline Details<br/>
+• When the user taps on a headline, they are taken to a new screen displaying additional details. <br/>
+• The new screen shows the headline image, title, description, and content, if available. <br/>
 
-Story 4: A new flavor should be created to present news for another source
-Acceptance criteria: 
-1. User should land in a different news source if running another target
-2. Headlines should be presented according to the target that was selecte
+##### Fingerprint Authentication<br/>
+• Upon opening the application, if the device has a fingerprint scanner and it is configured, the user is required to use fingerprint identification for authentication. <br/>
+• If the device does not have a fingerprint scanner or it is not configured, the app opens normally without requiring fingerprint authentication. <br/>
 
+##### Multiple News Sources<br/>
+• The app supports multiple news sources by creating different flavors. <br/>
+• Users can select a specific news source flavor, and upon launching the app, they will land in the chosen news source. <br/>
+• Headlines are presented according to the selected news source flavor. <br/>
+        
 <img src="https://github.com/Muzafferus/TechnoNews/blob/master/images/home.png" width="216" height="468"> <img src="https://github.com/Muzafferus/TechnoNews/blob/master/images/detail.png" width="216" height="468">
 
 ### Api information
@@ -62,7 +61,7 @@ In this folder, you will find projects using the following set of Libraries.
 - Write Unit test for API Request (NewsService)
 - Write Unit test for Database (ArticleDao)
 
-## Download
+### Download
 
 APK Downloads: https://github.com/Muzafferus/TechnoNews/releases/
 
